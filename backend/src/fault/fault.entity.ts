@@ -1,4 +1,4 @@
-import {IsNotEmpty, Length, MaxDate, MinDate} from "class-validator";
+import {IsBoolean, IsNotEmpty, Length, MaxDate, MinDate} from "class-validator";
 import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 
@@ -12,7 +12,7 @@ export class Fault {
     title: string;
 
     @IsNotEmpty()
-    @Column()
+    @Column("text")
     description: string
 
     @Column("timestamp with time zone")
@@ -20,7 +20,7 @@ export class Fault {
     @MaxDate(new Date("2100-01-01"))
     occurrenceDate: Date
 
-    @IsNotEmpty()
+    @IsBoolean()
     @Column()
     repairState: boolean
 }
