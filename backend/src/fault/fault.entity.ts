@@ -1,5 +1,6 @@
 import {IsBoolean, IsNotEmpty, Length, MaxDate, MinDate} from "class-validator";
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Inspection} from "../inspection/inspection.entity";
 
 
 @Entity("fault")
@@ -23,4 +24,7 @@ export class Fault {
     @IsBoolean()
     @Column()
     repairState: boolean
+
+    @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE"})
+    inspection: Inspection
 }
