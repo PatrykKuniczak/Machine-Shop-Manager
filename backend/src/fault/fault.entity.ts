@@ -19,6 +19,6 @@ export class Fault {
     @Column()
     repairState: boolean
 
-    @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE"})
+    @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE", nullable: false})
     inspection: Inspection
 }
