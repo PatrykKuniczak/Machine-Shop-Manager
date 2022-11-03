@@ -1,5 +1,4 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
-import {MinLength} from "class-validator";
 import {Inspection} from "../inspection/inspection.entity";
 
 
@@ -8,7 +7,6 @@ export class Operation {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @MinLength(10)
     @Column()
     name: string;
 
