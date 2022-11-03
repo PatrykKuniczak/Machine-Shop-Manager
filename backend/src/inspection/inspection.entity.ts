@@ -12,7 +12,7 @@ export class Inspection {
     @CreateDateColumn()
     startDate: Date;
 
-    @Column({nullable: true})
+    @Column("timestamp with time zone", {nullable: true})
     endDate: Date;
 
     @Column()
