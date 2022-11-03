@@ -16,7 +16,7 @@ export class Inspection {
     endDate: Date;
 
     @Column()
-    inspectionState: boolean
+    state: boolean
 
     @OneToMany(() => Fault, (fault) => fault.id)
     fault: Fault[]

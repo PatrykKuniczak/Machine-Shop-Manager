@@ -8,4 +8,7 @@ export class AxisDimension {
 
     @Column("char", {unique: true})
     axis: string;
+
+    @Column("smallint")
+    dimension: number
 }
