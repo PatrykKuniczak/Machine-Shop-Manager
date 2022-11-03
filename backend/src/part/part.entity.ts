@@ -1,5 +1,4 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
-import {IsNotEmpty} from "class-validator";
 import {Inspection} from "../inspection/inspection.entity";
 
 
@@ -9,7 +8,6 @@ export class Part {
     id: number;
 
     @Column()
-    @IsNotEmpty()
     name: string
 
     @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE"})
