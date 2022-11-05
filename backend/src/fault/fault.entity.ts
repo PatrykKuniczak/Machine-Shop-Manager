@@ -2,7 +2,7 @@ import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Inspection} from "../inspection/inspection.entity";
 
 
-@Entity("fault")
+@Entity("Fault")
 export class Fault {
     @PrimaryGeneratedColumn()
     id: number;

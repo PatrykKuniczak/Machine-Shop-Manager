@@ -1,7 +1,7 @@
 import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 
-@Entity("axisDimension")
+@Entity("AxisDimension")
 export class AxisDimension {
     @PrimaryGeneratedColumn()
     id: number;
@@ -9,6 +9,6 @@ export class AxisDimension {
     @Column("char", {unique: true})
     axis: string;
 
-    @Column("smallint")
+    @Column("float")
     dimension: number
 }

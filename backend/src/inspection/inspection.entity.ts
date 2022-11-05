@@ -4,7 +4,7 @@ import {Part} from "../part/part.entity";
 import {Operation} from "../operation/operation.entity";
 
 
-@Entity("inspection")
+@Entity("Inspection")
 export class Inspection {
     @PrimaryGeneratedColumn()
     id: number;
@@ -18,12 +18,12 @@ export class Inspection {
     @Column()
     state: boolean
 
-    @OneToMany(() => Fault, (fault) => fault.id)
+    @OneToMany(() => Fault, (fault) => fault.id, {cascade: true})
     fault: Fault[]
 
-    @OneToMany(() => Part, (party) => party.id)
+    @OneToMany(() => Part, (party) => party.id, {cascade: true})
     part: Part[]
 
-    @OneToMany(() => Operation, (operation) => operation.id)
+    @OneToMany(() => Operation, (operation) => operation.id, {cascade: true})
     operation: Operation[]
 }
