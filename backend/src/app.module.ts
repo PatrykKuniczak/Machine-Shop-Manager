@@ -12,13 +12,14 @@ import {PositionModule} from './position/position.module';
 import {PermissionModule} from './permission/permission.module';
 import {UserModule} from './user/user.module';
 import {PersonalDatumModule} from './personal-datum/personal-datum.module';
+import { MaterialModule } from './material/material.module';
 import typeOrmConfig from "../database/config/typeorm.config";
 
 
 @Module({
     imports: [ConfigModule.forRoot({isGlobal: true}), TypeOrmModule.forRootAsync(typeOrmConfig),
         AxisDimensionModule, FaultModule, PartModule, MachineTechnicalDataModule, OperationModule,
-        InspectionModule, MessageModule, PositionModule, PermissionModule, UserModule, PersonalDatumModule],
+        InspectionModule, MessageModule, PositionModule, PermissionModule, UserModule, PersonalDatumModule, MaterialModule],
     controllers: [],
     providers: []
 })
