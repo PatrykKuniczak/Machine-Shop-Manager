@@ -1,20 +1,26 @@
 import {User} from "../../user/user.entity";
-import {IsAlpha, MinDate} from "class-validator";
+import {IsAlpha, IsPositive, Matches, MaxDate, ValidateIf} from "class-validator";
 
 
 export class CreateMaterialDto {
-    isoNumber: number;
+    @IsAlpha()
+    isoClass: string;
+
+    @Matches("[P | H | M | S | K | N][1-6]")
+    isoSubGroup: string;
 
     @IsAlpha()
     metalAlloy: string;
 
-    takenBy: User[]
+    @IsPositive()
+    amount: number;
 
-    @MinDate(new Date())
-    @MinDate(new Date("2100.01.01"))
+    @ValidateIf(o => o.boughtDate >= o.takenDate)
+    @MaxDate(new Date())
     takenDate: Date;
 
-    @MinDate(new Date())
-    @MinDate(new Date("2100.01.01"))
+    @MaxDate(new Date())
     boughtDate: Date;
+
+    takenBy: User[]
 }

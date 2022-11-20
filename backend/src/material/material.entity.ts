@@ -7,19 +7,25 @@ export class Material {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column("smallint")
-    isoNumber: number;
+    @Column("char")
+    isoClass: string;
 
-    @Column()
+    @Column({length: 2})
+    isoSubGroup: string;
+
+    @Column({unique: true})
     metalAlloy: string;
 
-    @ManyToMany(() => User)
-    @JoinTable({name: "MaterialUser"})
-    takenBy: User[]
+    @Column("smallint")
+    amount: number;
 
     @Column("timestamp with time zone")
     takenDate: Date;
 
     @Column("timestamp with time zone")
     boughtDate: Date;
+
+    @ManyToMany(() => User)
+    @JoinTable({name: "MaterialUser"})
+    takenBy: User[]
 }
