@@ -2,7 +2,7 @@ import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from "typ
 import {AxisDimension} from "../axis-dimension/axis-dimension.entity";
 
 
-@Entity("machineTechnicalData")
+@Entity("MachineTechnicalData")
 export class MachineTechnicalData {
     @PrimaryGeneratedColumn()
     id: number
@@ -17,7 +17,7 @@ export class MachineTechnicalData {
     driverType: string;
 
     @ManyToMany(() => AxisDimension)
-    @JoinTable()
+    @JoinTable({name: 'MachineTechnicalData_AxisDimension'})
     workSpace: AxisDimension[];
 
     @Column({type: 'timestamp with time zone'})

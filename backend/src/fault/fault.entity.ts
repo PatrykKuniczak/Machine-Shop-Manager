@@ -1,8 +1,9 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Inspection} from "../inspection/inspection.entity";
+import {Machine} from "../machine/machine.entity";
 
 
-@Entity("fault")
+@Entity("Fault")
 export class Fault {
     @PrimaryGeneratedColumn()
     id: number;
@@ -21,4 +22,7 @@ export class Fault {
 
     @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE", nullable: false})
     inspection: Inspection
+
+    @ManyToOne(() => Machine, (machine) => machine.id)
+    machine: Machine
 }

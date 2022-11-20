@@ -1,5 +1,4 @@
 .env
-.eslintrc.js
 package-lock.json
 tsconfig.build.json
 /dist

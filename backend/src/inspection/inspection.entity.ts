@@ -1,10 +1,11 @@
-import {Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Fault} from "../fault/fault.entity";
 import {Part} from "../part/part.entity";
 import {Operation} from "../operation/operation.entity";
+import {Machine} from "../machine/machine.entity";
 
 
-@Entity("inspection")
+@Entity("Inspection")
 export class Inspection {
     @PrimaryGeneratedColumn()
     id: number;
@@ -12,18 +13,21 @@ export class Inspection {
     @CreateDateColumn()
     startDate: Date;
 
-    @Column({nullable: true})
+    @Column("timestamp with time zone", {nullable: true})
     endDate: Date;
 
     @Column()
-    inspectionState: boolean
+    state: boolean
 
-    @OneToMany(() => Fault, (fault) => fault.id)
+    @OneToMany(() => Fault, (fault) => fault.id, {cascade: true})
     fault: Fault[]
 
-    @OneToMany(() => Part, (party) => party.id)
+    @OneToMany(() => Part, (party) => party.id, {cascade: true})
     part: Part[]
 
-    @OneToMany(() => Operation, (operation) => operation.id)
+    @OneToMany(() => Operation, (operation) => operation.id, {cascade: true})
     operation: Operation[]
+
+    @ManyToOne(() => Machine, (machine) => machine.id)
+    machine: Machine
 }
