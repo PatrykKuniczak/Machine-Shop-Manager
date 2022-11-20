@@ -3,6 +3,7 @@ import {Position} from "../position/position.entity";
 import {Message} from "../message/message.entity";
 import {PersonalDatum} from "../personal-datum/personal-datum.entity";
 import {Order} from "../order/order.entity";
+import {Machine} from "../machine/machine.entity";
 
 
 @Entity("User")
@@ -24,4 +25,7 @@ export class User {
 
     @ManyToOne(() => Order, (order) => order.id)
     order: Order;
+
+    @ManyToOne(() => Machine, (machine) => machine.id)
+    machine: Machine
 }

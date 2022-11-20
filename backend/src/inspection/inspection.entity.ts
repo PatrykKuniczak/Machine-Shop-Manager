@@ -1,7 +1,8 @@
-import {Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Fault} from "../fault/fault.entity";
 import {Part} from "../part/part.entity";
 import {Operation} from "../operation/operation.entity";
+import {Machine} from "../machine/machine.entity";
 
 
 @Entity("Inspection")
@@ -26,4 +27,7 @@ export class Inspection {
 
     @OneToMany(() => Operation, (operation) => operation.id, {cascade: true})
     operation: Operation[]
+
+    @ManyToOne(() => Machine, (machine) => machine.id)
+    machine: Machine
 }

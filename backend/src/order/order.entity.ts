@@ -1,6 +1,7 @@
 import {Material} from "src/material/material.entity";
-import {Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../user/user.entity";
+import {Machine} from "../machine/machine.entity";
 
 
 @Entity("Order")
@@ -26,4 +27,7 @@ export class Order {
 
     @OneToMany(() => User, (user) => user.id)
     orderExecutionUser: User[];
+
+    @ManyToOne(() => Machine, (machine) => machine.id)
+    machine: Machine
 }
