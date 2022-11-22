@@ -2,7 +2,6 @@ import {Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToMany, OneToOne, 
 import {MachineTechnicalData} from "../machine-technical-data/machine-technical-data.entity";
 import {Inspection} from "../inspection/inspection.entity";
 import {Order} from "../order/order.entity";
-import {Fault} from "src/fault/fault.entity";
 import {User} from "src/user/user.entity";
 import {Permission} from "../permission/permission.entity";
 
@@ -12,7 +11,7 @@ export class Machine {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({length: 50})
+    @Column({length: 30})
     name: string;
 
     @Column({length: 150})
@@ -21,18 +20,15 @@ export class Machine {
     @Column("timestamp with time zone")
     deliveredDate: Date;
 
-    @OneToOne(() => MachineTechnicalData)
+    @OneToOne(() => MachineTechnicalData, {onDelete: "CASCADE", cascade: true, nullable: false})
     @JoinColumn()
     machineTechnicalData: MachineTechnicalData
 
-    @OneToMany(() => Inspection, (inspection) => inspection.id)
+    @OneToMany(() => Inspection, (inspection) => inspection.id, {cascade: true})
     inspection: Inspection[]
 
-    @OneToMany(() => Order, (order) => order.id)
+    @OneToMany(() => Order, (order) => order.id, {cascade: true})
     order: Order[]
-
-    @OneToMany(() => Fault, (fault) => fault.id)
-    fault: Fault[]
 
     @ManyToMany(() => User)
     @JoinTable({name: "Machine_User"})

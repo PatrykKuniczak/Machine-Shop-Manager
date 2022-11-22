@@ -1,7 +1,6 @@
 import {MachineTechnicalData} from "../../machine-technical-data/machine-technical-data.entity";
 import {Inspection} from "../../inspection/inspection.entity";
 import {Order} from "../../order/order.entity";
-import {Fault} from "../../fault/fault.entity";
 import {User} from "../../user/user.entity";
 import {Permission} from "../../permission/permission.entity";
 
@@ -13,15 +12,13 @@ export class CreateMachineDto {
 
     deliveredDate: Date;
 
-    machineTechnicalData: MachineTechnicalData
+    machineTechnicalData: MachineTechnicalData;
 
-    inspection: Inspection[]
+    inspection: Inspection[];
 
-    order: Order[]
+    order: Order[];
 
-    fault: Fault[]
+    operator: User[];
 
-    operator: User[]
-
-    permission: Permission[]
+    permission: Permission[];
 }
