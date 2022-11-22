@@ -2,6 +2,8 @@ import {Material} from "src/material/material.entity";
 import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "../user/user.entity";
 import {Machine} from "../machine/machine.entity";
+import {Instrument} from "../instrument/instrument.entity";
+import {Tool} from "../tool/tool.entity";
 
 
 @Entity("Order")
@@ -30,4 +32,12 @@ export class Order {
 
     @ManyToOne(() => Machine, (machine) => machine.id)
     machine: Machine
+
+    @ManyToMany(() => Instrument, {cascade: true, onDelete: "SET NULL"})
+    @JoinTable({name: 'Order_Instrument'})
+    instrument: Instrument
+
+    @ManyToMany(() => Tool)
+    @JoinTable({name: 'Order_Tool'})
+    tool: Tool[]
 }
