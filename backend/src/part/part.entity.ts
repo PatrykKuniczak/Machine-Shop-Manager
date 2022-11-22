@@ -7,9 +7,9 @@ export class Part {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({length: 100})
     name: string
 
-    @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE"})
+    @ManyToOne(() => Inspection, (inspection) => inspection.id, {cascade: true, onDelete: "CASCADE"})
     inspection: Inspection
 }

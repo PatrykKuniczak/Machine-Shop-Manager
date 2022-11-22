@@ -7,9 +7,10 @@ export class Operation {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({length: 50})
     name: string;
 
-    @ManyToOne(() => Inspection, (inspection) => inspection.id, {onDelete: "CASCADE"})
+    @ManyToOne(() => Inspection, (inspection) => inspection.id,
+        {cascade: true, onDelete: "CASCADE", nullable: false})
     inspection: Inspection
 }

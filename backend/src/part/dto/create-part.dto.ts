@@ -1,11 +1,10 @@
 import {Inspection} from "../../inspection/inspection.entity";
-import {IsNotEmpty} from "class-validator";
+import {MinLength} from "class-validator";
 
 
 export class CreatePartDto {
+    @MinLength(3)
     name: string
 
-
-    @IsNotEmpty()
     inspection: Inspection
 }

@@ -11,7 +11,7 @@ export class Position {
     name: string;
 
     @ManyToOne(() => Permission, (permission) => permission.id, {
-        nullable: false, onDelete: "CASCADE"
+        nullable: false, onDelete: "CASCADE", cascade: true
     })
     permission: Permission
 }

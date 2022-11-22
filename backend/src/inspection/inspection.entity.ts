@@ -19,6 +19,9 @@ export class Inspection {
     @Column()
     state: boolean
 
+    @ManyToOne(() => Machine, (machine) => machine.id, {cascade: true, onDelete: "CASCADE", nullable: false})
+    machine: Machine
+
     @OneToMany(() => Fault, (fault) => fault.id, {cascade: true})
     fault: Fault[]
 
@@ -27,7 +30,4 @@ export class Inspection {
 
     @OneToMany(() => Operation, (operation) => operation.id, {cascade: true})
     operation: Operation[]
-
-    @ManyToOne(() => Machine, (machine) => machine.id)
-    machine: Machine
 }

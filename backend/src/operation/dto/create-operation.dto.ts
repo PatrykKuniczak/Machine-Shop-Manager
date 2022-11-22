@@ -3,7 +3,7 @@ import {Inspection} from "../../inspection/inspection.entity";
 
 
 export class CreateOperationDto {
-    @MinLength(10)
+    @MinLength(5)
     name: string;
 
     @IsNotEmpty()
