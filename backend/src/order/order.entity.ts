@@ -11,33 +11,36 @@ export class Order {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column({length: 50})
+    title: string;
+
     @Column()
     orderNumber: number;
 
-    @Column({length: 500})
+    @Column({length: 500, nullable: true})
     description: string;
 
-    @Column()
+    @Column("smallint")
     detailsNumber: number;
 
-    @Column({nullable: true, type: 'timestamp with time zone'})
-    orderExecutionDate: Date
+    @Column({type: 'timestamp with time zone', nullable: true})
+    orderExecutionDate: Date;
+
+    @ManyToOne(() => Machine, (machine) => machine.id, {nullable: false, onDelete: "CASCADE", cascade: true})
+    machine: Machine;
+
+    @OneToMany(() => User, (user) => user.id)
+    orderExecutionUser: User[];
 
     @ManyToMany(() => Material)
     @JoinTable({name: 'Order_Material'})
     material: Material[];
 
-    @OneToMany(() => User, (user) => user.id)
-    orderExecutionUser: User[];
-
-    @ManyToOne(() => Machine, (machine) => machine.id)
-    machine: Machine
-
-    @ManyToMany(() => Instrument, {cascade: true, onDelete: "SET NULL"})
+    @ManyToMany(() => Instrument, {onDelete: "SET NULL"})
     @JoinTable({name: 'Order_Instrument'})
-    instrument: Instrument
+    instrument: Instrument[];
 
     @ManyToMany(() => Tool)
     @JoinTable({name: 'Order_Tool'})
-    tool: Tool[]
+    tool: Tool[];
 }
