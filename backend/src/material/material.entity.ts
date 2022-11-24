@@ -10,7 +10,7 @@ export class Material {
     @Column("char")
     isoClass: string;
 
-    @Column({length: 2})
+    @Column({length: 2, unique: true})
     isoSubGroup: string;
 
     @Column({unique: true})
@@ -27,5 +27,5 @@ export class Material {
 
     @ManyToMany(() => User)
     @JoinTable({name: "MaterialUser"})
-    takenBy: User[]
+    takenBy: User[];
 }

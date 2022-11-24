@@ -1,21 +1,34 @@
 import {Material} from "../../material/material.entity";
 import {User} from "../../user/user.entity";
-import {IsPositive, MinDate} from "class-validator";
+import {MaxDate, Min, MinDate, MinLength} from "class-validator";
+import {Machine} from "../../machine/machine.entity";
+import {Instrument} from "../../instrument/instrument.entity";
+import {Tool} from "../../tool/tool.entity";
 
 
 export class CreateOrderDto {
-    @IsPositive()
+    @MinLength(3)
+    title: string;
+
+    @Min(1)
     orderNumber: number;
 
     description: string;
 
-    @IsPositive()
+    @Min(1)
     detailsNumber: number;
 
     @MinDate(new Date())
-    orderExecutionDate: Date
+    @MaxDate(new Date("2100-01-01"))
+    orderExecutionDate: Date;
+
+    machine: Machine;
+
+    orderExecutionUser: User[];
 
     material: Material[];
 
-    orderExecutionEmployee: User[];
+    instrument: Instrument[];
+
+    tool: Tool[];
 }

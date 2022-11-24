@@ -1,9 +1,9 @@
-import { Min } from "class-validator";
+import {Min} from "class-validator";
 
 
 export class CreateInstrumentDto {
     @Min(1)
-    Min: number;
+    length: number;
 
     @Min(1)
     height: number;

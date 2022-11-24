@@ -1,6 +1,6 @@
-import { Column, Entity, OneToOne, JoinTable, PrimaryGeneratedColumn } from 'typeorm';
-import { Insert } from '../insert/insert.entity';
-import { Holder } from '../holder/holder.entity';
+import {Column, Entity, JoinTable, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Insert} from '../insert/insert.entity';
+import {Holder} from '../holder/holder.entity';
 
 
 @Entity('Tool')
@@ -15,13 +15,13 @@ export class Tool {
     radius: number;
 
     @Column('smallint')
-    insertNumber: number;
+    insertsNumber: number;
 
-    @OneToOne(() => Insert, (insert) => insert.id, { onDelete: "CASCADE" })
+    @OneToOne(() => Insert, (insert) => insert.id, {onDelete: "CASCADE"})
     @JoinTable()
     insert: Insert;
 
-    @OneToOne(() => Holder, (holder) => holder.id, { onDelete: "CASCADE" })
+    @OneToOne(() => Holder, (holder) => holder.id, {onDelete: "CASCADE"})
     @JoinTable()
     holder: Holder;
 }

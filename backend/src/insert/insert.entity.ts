@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
 
 @Entity('Insert')
@@ -6,7 +6,7 @@ export class Insert {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length:30 })
+    @Column({length: 30})
     name: string;
 
     @Column('float')
@@ -15,6 +15,6 @@ export class Insert {
     @Column('float')
     radius: number;
 
-    @Column({ length:30 })
+    @Column({length: 30})
     material: string;
 }

@@ -15,6 +15,6 @@ export class PersonalDatum {
     @Column({length: 50})
     birthCity: string;
 
-    @Column()
+    @Column("timestamp with time zone")
     birthDate: Date;
 }
