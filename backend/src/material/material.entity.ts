@@ -20,10 +20,10 @@ export class Material {
     amount: number;
 
     @Column("timestamp with time zone")
-    takenDate: Date;
+    boughtDate: Date;
 
     @Column("timestamp with time zone")
-    boughtDate: Date;
+    takenDate: Date;
 
     @ManyToMany(() => User)
     @JoinTable({name: "MaterialUser"})

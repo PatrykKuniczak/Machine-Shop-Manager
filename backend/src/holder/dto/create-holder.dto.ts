@@ -1,4 +1,4 @@
-import { Min, MinLength } from "class-validator";
+import {Min, MinLength} from "class-validator";
 
 
 export class CreateHolderDto {

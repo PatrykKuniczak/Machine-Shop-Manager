@@ -4,11 +4,11 @@ import {PersonalDatum} from "../../personal-datum/personal-datum.entity";
 
 
 export class CreateUserDto {
-    position: Position;
-
     hiredDate: Date;
 
-    message: Message[]
+    position: Position;
 
     personalDatum: PersonalDatum;
+
+    message: Message[];
 }

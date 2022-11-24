@@ -8,23 +8,23 @@ export class Permission {
     id: number;
 
     @Column()
-    viewOrder: boolean
+    viewOrder: boolean;
 
     @Column()
-    sendOrder: boolean
+    sendOrder: boolean;
 
     @Column()
-    viewDrawing: boolean
+    viewDrawing: boolean;
 
     @Column()
-    sendDrawing: boolean
+    sendDrawing: boolean;
 
     @Column()
-    takeResource: boolean
+    takeResource: boolean;
 
     @Column()
-    repairing: boolean
+    repairing: boolean;
 
     @OneToMany(() => Position, (position) => position.id, {cascade: true})
-    position: Position[]
+    position: Position[];
 }

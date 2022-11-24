@@ -10,5 +10,5 @@ export class CreateAxisDimensionDto {
     @IsPositive()
     dimension: number;
 
-    machineTechnicalData: MachineTechnicalData
+    machineTechnicalData: MachineTechnicalData;
 }

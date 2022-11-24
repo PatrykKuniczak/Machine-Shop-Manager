@@ -22,19 +22,19 @@ export class Machine {
 
     @OneToOne(() => MachineTechnicalData, {onDelete: "CASCADE", cascade: true, nullable: false})
     @JoinColumn()
-    machineTechnicalData: MachineTechnicalData
+    machineTechnicalData: MachineTechnicalData;
 
     @OneToMany(() => Inspection, (inspection) => inspection.id, {cascade: true})
-    inspection: Inspection[]
+    inspection: Inspection[];
 
     @OneToMany(() => Order, (order) => order.id, {cascade: true})
-    order: Order[]
+    order: Order[];
 
     @ManyToMany(() => User)
     @JoinTable({name: "Machine_User"})
-    operator: User[]
+    operator: User[];
 
     @ManyToMany(() => Permission)
     @JoinTable({name: "Machine_Permission"})
-    permission: Permission[]
+    permission: Permission[];
 }

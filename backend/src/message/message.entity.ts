@@ -11,8 +11,8 @@ export class Message {
     content: string;
 
     @ManyToOne(() => User, (user) => user.id, {onDelete: "CASCADE", nullable: false})
-    sender: User
+    sender: User;
 
     @ManyToOne(() => User, (user) => user.id, {onDelete: "CASCADE", nullable: false})
-    addressee: User
+    addressee: User;
 }

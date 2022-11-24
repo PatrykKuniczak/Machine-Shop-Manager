@@ -4,7 +4,7 @@ import {MinLength} from "class-validator";
 
 export class CreatePartDto {
     @MinLength(3)
-    name: string
+    name: string;
 
-    inspection: Inspection
+    inspection: Inspection;
 }

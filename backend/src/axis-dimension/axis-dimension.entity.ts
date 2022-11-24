@@ -11,12 +11,12 @@ export class AxisDimension {
     axis: string;
 
     @Column("float")
-    dimension: number
+    dimension: number;
 
     @ManyToOne(() => MachineTechnicalData, (machineTechnicalData) => machineTechnicalData.id, {
         nullable: false,
         onDelete: "CASCADE",
         cascade: true
     })
-    machineTechnicalData: MachineTechnicalData
+    machineTechnicalData: MachineTechnicalData;
 }

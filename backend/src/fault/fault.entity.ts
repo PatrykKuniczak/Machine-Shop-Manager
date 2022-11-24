@@ -11,15 +11,15 @@ export class Fault {
     title: string;
 
     @Column("text", {nullable: true})
-    description: string
+    description: string;
 
     @Column("timestamp with time zone")
-    occurrenceDate: Date
+    occurrenceDate: Date;
 
     @Column()
-    repairState: boolean
+    repairState: boolean;
 
     @ManyToOne(() => Inspection, (inspection) => inspection.id,
         {onDelete: "CASCADE", cascade: true, nullable: false})
-    inspection: Inspection
+    inspection: Inspection;
 }

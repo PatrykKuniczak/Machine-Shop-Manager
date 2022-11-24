@@ -10,13 +10,13 @@ export class CreateInspectionDto {
     @MaxDate(new Date("2100-01-01"))
     endDate: Date;
 
-    state: boolean
+    state: boolean;
 
-    machine: Machine
+    machine: Machine;
 
-    fault: Fault[]
+    fault: Fault[];
 
-    part: Part[]
+    part: Part[];
 
-    operation: Operation[]
+    operation: Operation[];
 }

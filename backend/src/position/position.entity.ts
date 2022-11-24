@@ -13,5 +13,5 @@ export class Position {
     @ManyToOne(() => Permission, (permission) => permission.id, {
         nullable: false, onDelete: "CASCADE", cascade: true
     })
-    permission: Permission
+    permission: Permission;
 }

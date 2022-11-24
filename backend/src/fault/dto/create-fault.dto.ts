@@ -6,13 +6,13 @@ export class CreateFaultDto {
     @MinLength(5)
     title: string;
 
-    description: string
+    description: string;
 
     @MinDate(new Date())
     @MaxDate(new Date("2100-01-01"))
-    occurrenceDate: Date
+    occurrenceDate: Date;
 
-    repairState: boolean
+    repairState: boolean;
 
-    inspection: Inspection
+    inspection: Inspection;
 }

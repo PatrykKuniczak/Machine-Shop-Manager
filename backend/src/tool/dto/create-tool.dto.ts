@@ -1,6 +1,6 @@
-import { Min } from "class-validator";
-import { Insert } from "src/insert/insert.entity";
-import { Holder } from "src/holder/holder.entity";
+import {Min} from "class-validator";
+import {Insert} from "src/insert/insert.entity";
+import {Holder} from "src/holder/holder.entity";
 
 
 export class CreateToolDto {
@@ -11,7 +11,7 @@ export class CreateToolDto {
     radius: number;
 
     @Min(1)
-    insertNumber: number;
+    insertsNumber: number;
 
     insert: Insert;
 

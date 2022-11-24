@@ -4,17 +4,17 @@ import {Position} from "../../position/position.entity";
 export class CreatePermissionDto {
     id: number;
 
-    viewOrder: boolean
+    viewOrder: boolean;
 
-    sendOrder: boolean
+    sendOrder: boolean;
 
-    viewDrawing: boolean
+    viewDrawing: boolean;
 
-    sendDrawing: boolean
+    sendDrawing: boolean;
 
-    takeResource: boolean
+    takeResource: boolean;
 
-    repairing: boolean
+    repairing: boolean;
 
-    position: Position[]
+    position: Position[];
 }

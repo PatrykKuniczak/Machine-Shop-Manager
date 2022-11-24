@@ -12,5 +12,5 @@ export class Operation {
 
     @ManyToOne(() => Inspection, (inspection) => inspection.id,
         {cascade: true, onDelete: "CASCADE", nullable: false})
-    inspection: Inspection
+    inspection: Inspection;
 }

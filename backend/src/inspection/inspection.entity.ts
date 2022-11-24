@@ -17,17 +17,17 @@ export class Inspection {
     endDate: Date;
 
     @Column()
-    state: boolean
+    state: boolean;
 
     @ManyToOne(() => Machine, (machine) => machine.id, {cascade: true, onDelete: "CASCADE", nullable: false})
-    machine: Machine
+    machine: Machine;
 
     @OneToMany(() => Fault, (fault) => fault.id, {cascade: true})
-    fault: Fault[]
+    fault: Fault[];
 
     @OneToMany(() => Part, (party) => party.id, {cascade: true})
-    part: Part[]
+    part: Part[];
 
     @OneToMany(() => Operation, (operation) => operation.id, {cascade: true})
-    operation: Operation[]
+    operation: Operation[];
 }

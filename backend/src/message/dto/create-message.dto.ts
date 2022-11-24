@@ -6,7 +6,7 @@ export class CreateMessageDto {
     @IsNotEmpty()
     content: string;
 
-    sender: User
+    sender: User;
 
-    addressee: User
+    addressee: User;
 }

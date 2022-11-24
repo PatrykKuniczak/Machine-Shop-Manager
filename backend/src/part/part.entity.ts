@@ -8,8 +8,8 @@ export class Part {
     id: number;
 
     @Column({length: 100})
-    name: string
+    name: string;
 
     @ManyToOne(() => Inspection, (inspection) => inspection.id, {cascade: true, onDelete: "CASCADE"})
-    inspection: Inspection
+    inspection: Inspection;
 }
