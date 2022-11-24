@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Tool} from "../tool/tool.entity";
 
 
 @Entity('Holder')
@@ -17,4 +18,7 @@ export class Holder {
 
     @Column({length: 30})
     type: string;
+
+    @OneToMany(() => Tool, (tool) => tool.id)
+    tool: Tool[];
 }

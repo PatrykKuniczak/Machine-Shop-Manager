@@ -1,4 +1,5 @@
-import { Min, MinLength } from "class-validator";
+import {IsAlpha, Min, MinLength} from "class-validator";
+import {Tool} from "../../tool/tool.entity";
 
 
 export class CreateInsertDto {
@@ -12,5 +13,8 @@ export class CreateInsertDto {
     radius: number;
 
     @MinLength(3)
+    @IsAlpha()
     material: string;
+
+    tool: Tool[];
 }

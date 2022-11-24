@@ -1,4 +1,4 @@
-import {Column, Entity, JoinTable, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 import {Insert} from '../insert/insert.entity';
 import {Holder} from '../holder/holder.entity';
 
@@ -17,11 +17,9 @@ export class Tool {
     @Column('smallint')
     insertsNumber: number;
 
-    @OneToOne(() => Insert, (insert) => insert.id, {onDelete: "CASCADE"})
-    @JoinTable()
+    @ManyToOne(() => Insert, (insert) => insert.id, {onDelete: "CASCADE", cascade: true, nullable: false})
     insert: Insert;
 
-    @OneToOne(() => Holder, (holder) => holder.id, {onDelete: "CASCADE"})
-    @JoinTable()
+    @ManyToOne(() => Holder, (holder) => holder.id, {onDelete: "CASCADE", cascade: true, nullable: false})
     holder: Holder;
 }

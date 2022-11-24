@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Tool} from "../tool/tool.entity";
 
 
 @Entity('Insert')
@@ -17,4 +18,7 @@ export class Insert {
 
     @Column({length: 30})
     material: string;
+
+    @OneToMany(() => Tool, (tool) => tool.id)
+    tool: Tool[];
 }
