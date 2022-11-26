@@ -3,10 +3,6 @@ import {AxisDimension} from "../../axis-dimension/axis-dimension.entity";
 
 
 export class CreateMachineTechnicalDataDto {
-    @Max(15)
-    @Min(2)
-    axlesNumber: number;
-
     @MinLength(3)
     machineType: string;
 
