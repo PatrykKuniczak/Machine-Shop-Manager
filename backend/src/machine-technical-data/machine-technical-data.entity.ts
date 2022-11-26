@@ -7,9 +7,6 @@ export class MachineTechnicalData {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column("smallint")
-    axlesNumber: number;
-
     @Column({length: 50})
     machineType: string;
 

@@ -7,7 +7,7 @@ export class Holder {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({length: 30})
+    @Column({length: 50})
     name: string;
 
     @Column('float')
@@ -16,7 +16,7 @@ export class Holder {
     @Column('float')
     radius: number;
 
-    @Column({length: 30})
+    @Column({length: 50})
     type: string;
 
     @OneToMany(() => Tool, (tool) => tool.id)

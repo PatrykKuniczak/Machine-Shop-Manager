@@ -6,6 +6,9 @@ export class Instrument {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column({length: 50})
+    name: string;
+    
     @Column('float')
     length: number;
 
