@@ -1,10 +1,10 @@
 {
   "name": "backend",
   "version": "0.0.1",
-  "description": "",
+  "description": "Application for manage machine shop",
   "author": "Patryk Kuniczak",
   "private": true,
-  "license": "MIT",
+  "license": "GNU",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
