@@ -1,5 +1,6 @@
 import {Permission} from "../../permission/permission.entity";
 import {MinLength} from "class-validator";
+import {User} from "../../user/user.entity";
 
 
 export class CreatePositionDto {
@@ -7,4 +8,6 @@ export class CreatePositionDto {
     name: string;
 
     permission: Permission;
+
+    user: User[]
 }
